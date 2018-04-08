@@ -1,13 +1,21 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 # origin_author: robot527
 # created at 2016-05-30
 # Compatible_Author: ChainNewsYan
 # created at 2018-04-08
 
-from re import sub
 
+"""Add Spaces
+Usage:
+    add_pass.py <content>
+
+Options:
+    -h --help     add blocks between english and chinese
+    --version     2.0.
 """
-自动给中文英文之间加入合理的空格
-"""
+from docopt import docopt
 
 
 def is_chinese(uni_ch):
@@ -98,7 +106,7 @@ def add_spaces_to_string(string):
             elif (is_chinese(ch_lst[i]) and is_en_symbol(ch_lst[i + 1])) \
                     or (is_en_symbol(ch_lst[i]) and is_chinese(ch_lst[i + 1])):
                 ch_lst[i] += " "
-                flag = 1
+                # flag = 1
             # 中文(括号)与数字之间需要增加空格
             elif (is_chinese(ch_lst[i]) and isdigit(ch_lst[i + 1])) \
                     or (isdigit(ch_lst[i]) and is_chinese(ch_lst[i + 1])):
@@ -109,12 +117,12 @@ def add_spaces_to_string(string):
 
         newustr += ch_lst[i]
     newstring = newustr
-    if flag == 1:
-        # 处理中文里的粗体字和斜体字
-        newstring = sub(r' \* ', '*', newstring)
-        newstring = sub(r' \*\* ', '**', newstring)
-        newstring = sub(' _ ', '_', newstring)
-        newstring = sub(' __ ', '__', newstring)
+    # if flag == 1:
+    #     # 处理中文里的粗体字和斜体字
+    #     newstring = sub(r' \* ', '*', newstring)
+    #     newstring = sub(r' \*\* ', '**', newstring)
+    #     newstring = sub(' _ ', '_', newstring)
+    #     newstring = sub(' __ ', '__', newstring)
 
     return add_space_betw_digit_and_unit(newstring)
 
@@ -135,7 +143,18 @@ def add_space_betw_digit_and_unit(string):
     return string
 
 
-def add_spaces_to_content(content: str, code="utf8") -> str:
-    content = content.encode(code)
-    content_added = add_spaces_to_string(content)
-    return content_added
+def add_spaces_to_content(content: str) -> str:
+    return add_spaces_to_string(content)
+
+
+def main():
+    args = docopt(__doc__, version='add-spaces 2.0')
+    kwargs = {
+        'content': args['<content>'],
+    }
+    result = add_spaces_to_content(**kwargs)
+    print(result)
+
+
+if __name__ == '__main__':
+    main()
