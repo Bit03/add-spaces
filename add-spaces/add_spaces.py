@@ -87,7 +87,7 @@ def is_zh_r_bracket(uni_ch):
 def add_spaces_to_string(string):
     """给字符串添加合理的空格。"""
     newustr = ""
-    flag = 0
+    # flag = 0
     ch_lst = list(string)
     length = len(ch_lst)
     for i in range(0, length):
