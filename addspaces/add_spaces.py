@@ -1,11 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# origin_author: robot527
-# created at 2016-05-30
-# Compatible_Author: ChainNewsYan
-# created at 2018-04-08
-
 
 """Add Spaces
 Usage:
