@@ -118,7 +118,7 @@ def add_spaces_to_string(string):
         newstring = sub(r' \* ', '*', newstring)
         newstring = sub(r' \*\* ', '**', newstring)
         newstring = sub(r'\*\* ', '**', newstring)
-        newstring = sub(r'_\*\*', '**', newstring)
+        newstring = sub(r' \*\*', '**', newstring)
         newstring = sub(' _ ', '_', newstring)
         newstring = sub(' __ ', '__', newstring)
 
