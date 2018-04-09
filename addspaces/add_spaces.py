@@ -11,6 +11,7 @@ Options:
     --version     2.0.
 """
 from docopt import docopt
+from re import sub
 
 
 def is_chinese(uni_ch):
@@ -82,7 +83,7 @@ def is_zh_r_bracket(uni_ch):
 def add_spaces_to_string(string):
     """给字符串添加合理的空格。"""
     newustr = ""
-    # flag = 0
+    flag = 0
     ch_lst = list(string)
     length = len(ch_lst)
     for i in range(0, length):
@@ -101,7 +102,7 @@ def add_spaces_to_string(string):
             elif (is_chinese(ch_lst[i]) and is_en_symbol(ch_lst[i + 1])) \
                     or (is_en_symbol(ch_lst[i]) and is_chinese(ch_lst[i + 1])):
                 ch_lst[i] += " "
-                # flag = 1
+                flag = 1
             # 中文(括号)与数字之间需要增加空格
             elif (is_chinese(ch_lst[i]) and isdigit(ch_lst[i + 1])) \
                     or (isdigit(ch_lst[i]) and is_chinese(ch_lst[i + 1])):
@@ -112,12 +113,12 @@ def add_spaces_to_string(string):
 
         newustr += ch_lst[i]
     newstring = newustr
-    # if flag == 1:
-    #     # 处理中文里的粗体字和斜体字
-    #     newstring = sub(r' \* ', '*', newstring)
-    #     newstring = sub(r' \*\* ', '**', newstring)
-    #     newstring = sub(' _ ', '_', newstring)
-    #     newstring = sub(' __ ', '__', newstring)
+    if flag == 1:
+        # 处理中文里的粗体字和斜体字
+        newstring = sub(r' \* ', '*', newstring)
+        newstring = sub(r' \*\* ', '**', newstring)
+        newstring = sub(' _ ', '_', newstring)
+        newstring = sub(' __ ', '__', newstring)
 
     return add_space_betw_digit_and_unit(newstring)
 
