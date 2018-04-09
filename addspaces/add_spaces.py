@@ -113,9 +113,17 @@ def add_spaces_to_string(string):
     newstring = newustr
     # 处理中文里的粗体字和斜体字
     newstring = sub(r' \* ', '*', newstring)
+    newstring = sub(r'\* ', '*', newstring)
+    newstring = sub(r'_\*', '*', newstring)
     newstring = sub(r' \*\* ', '**', newstring)
+    newstring = sub(r'\*\* ', '**', newstring)
+    newstring = sub(r'_\*\*', '**', newstring)
     newstring = sub(' _ ', '_', newstring)
+    newstring = sub('_ ', '_', newstring)
+    newstring = sub(' _', '_', newstring)
     newstring = sub(' __ ', '__', newstring)
+    newstring = sub('__ ', '__', newstring)
+    newstring = sub(' __', '__', newstring)
 
     return add_space_betw_digit_and_unit(newstring)
 
