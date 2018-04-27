@@ -126,18 +126,19 @@ def add_spaces_to_string(string):
 
 
 def add_space_betw_digit_and_unit(string):
-    """给数字与单位之间增加空格。"""
-    from re import sub
-    # 常用单位，不齐全
-    units = ['bps', 'Kbps', 'Mbps', 'Gbps',
-             'B', 'KB', 'MB', 'GB', 'TB', 'PB',
-             'g', 'Kg', 't',
-             'h', 'm', 's']
-    for unit in units:
-        pattern = r'(?<=\d)' + unit  # positive lookbehind assertion,
-        # 如果前面是括号中 '=' 后面的字符串，则匹配成功
-        repl = ' ' + unit
-        string = sub(pattern, repl, string)
+# todo markdown image url user hash uuid like units in it. will create blanck newline in. makes wrong
+#    """给数字与单位之间增加空格。"""
+#    from re import sub
+#    # 常用单位，不齐全
+#    units = ['bps', 'Kbps', 'Mbps', 'Gbps',
+#             'B', 'KB', 'MB', 'GB', 'TB', 'PB',
+#             'g', 'Kg', 't',
+#             'h', 'm', 's']
+#    for unit in units:
+#        pattern = r'(?<=\d)' + unit  # positive lookbehind assertion,
+#        # 如果前面是括号中 '=' 后面的字符串，则匹配成功
+#        repl = ' ' + unit
+#        string = sub(pattern, repl, string)
     return string
 
 
