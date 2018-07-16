@@ -119,8 +119,10 @@ def add_spaces_to_string(string):
         newstring = sub(r' \*\* ', '**', newstring)
         newstring = sub(r'\*\* ', '**', newstring)
         newstring = sub(r' \*\*', '**', newstring)
-        newstring = sub(' _ ', '_', newstring)
-        newstring = sub(' __ ', '__', newstring)
+        newstring = sub('_ ', '_', newstring)
+        newstring = sub(' _', '_', newstring)
+        newstring = sub('__ ', '__', newstring)
+        newstring = sub(' __', '__', newstring)
 
     return add_space_betw_digit_and_unit(newstring)
 
