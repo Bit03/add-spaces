@@ -115,7 +115,7 @@ def add_spaces_to_string(string):
     newstring = newustr
     # 处理中文里的粗体字和斜体字
     if flag == 1:
-        newstring = sub(r' \* ', '*', newstring)
+        newstring = sub(r'\*', '*', newstring)
         newstring = sub(r' \*\* ', '**', newstring)
         newstring = sub(r'\*\* ', '**', newstring)
         newstring = sub(r' \*\*', '**', newstring)
@@ -144,7 +144,7 @@ def add_space_betw_digit_and_unit(string):
     return string
 
 
-def add_spaces_to_content(content: str) -> str:
+def add_spaces_to_content(content):
     return add_spaces_to_string(content)
 
 
